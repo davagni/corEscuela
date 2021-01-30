@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Xml;
 using corEscuela.Entidades;
 
@@ -16,7 +17,9 @@ namespace corEscuela
 
             var escuela2 = new Escuela("Platzi Academy", 2021, TiposEscuela.Secundaria, ciudad: "Santa Fe", pais: "Argentina");
 
-            var curso1 = new Curso()
+            var arregloCursos = new Curso[3];
+
+            arregloCursos[0] = new Curso()
             {
                 Nombre = "101"
             };
@@ -25,8 +28,9 @@ namespace corEscuela
             {
                 Nombre = "201"
             };
+            arregloCursos[1] = curso2;
 
-            var curso3 = new Curso()
+            arregloCursos[2] = new Curso
             {
                 Nombre = "301"
             };
@@ -35,13 +39,17 @@ namespace corEscuela
             System.Console.WriteLine("========================");
             System.Console.WriteLine(escuela2);
             System.Console.WriteLine("========================");
-            System.Console.WriteLine(curso1.Nombre + ", " + curso1.UniqueId);
-            System.Console.WriteLine("========================");
-            System.Console.WriteLine($"{curso2.Nombre}, {curso2.UniqueId}");
-            System.Console.WriteLine("========================");
-            System.Console.WriteLine(curso3);
+            ImprimirCursos(arregloCursos);
+        }
 
-
+        private static void ImprimirCursos(Curso[] arregloCursos)
+        {
+            int contador = 0;
+            while (contador < arregloCursos.Length)
+            {
+                System.Console.WriteLine($"Nombre: {arregloCursos[contador].Nombre}, ID: {arregloCursos[contador].UniqueId}");
+                contador++;
+            }
         }
     }
 }
