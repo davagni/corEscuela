@@ -1,3 +1,5 @@
+using Microsoft.Win32.SafeHandles;
+
 namespace corEscuela.Entidades
 {
     class Escuela
@@ -13,6 +15,8 @@ namespace corEscuela.Entidades
         public string Pais { get; set; }
         public string Ciudad { get; set; }
         public TiposEscuela TipoEscuela { get; set; }
+
+        public Curso[] Cursos { get; set; }
 
         //Constructor
         public Escuela(string nombre, int año) => (Nombre, AñoDeCreación) = (nombre, año);

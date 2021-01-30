@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Xml;
-using corEscuela.Entidades;
+﻿using corEscuela.Entidades;
+using static System.Console;
 
 namespace corEscuela
 {
@@ -17,29 +15,35 @@ namespace corEscuela
 
             var escuela2 = new Escuela("Platzi Academy", 2021, TiposEscuela.Secundaria, ciudad: "Santa Fe", pais: "Argentina");
 
-            var arregloCursos = new Curso[3];
+            // var arregloCursos = new Curso[3]{
+            //     new Curso() { Nombre = "101" },
+            //     new Curso() { Nombre = "201"},
+            //     new Curso() { Nombre = "301" }
+            // };
 
-            arregloCursos[0] = new Curso()
+            Curso[] arregloCursos =
             {
-                Nombre = "101"
+                new Curso() { Nombre = "101" },
+                new Curso() { Nombre = "201" },
+                new Curso() { Nombre = "301" }
+            };
+            escuela.Cursos = arregloCursos;
+
+            escuela2.Cursos = new Curso[]{
+                new Curso() { Nombre = "102" },
+                new Curso() { Nombre = "202" },
+                new Curso() { Nombre = "302" }
             };
 
-            var curso2 = new Curso()
-            {
-                Nombre = "201"
-            };
-            arregloCursos[1] = curso2;
+            //System.Console.WriteLine(escuela);
+            //System.Console.WriteLine("========================");
+            WriteLine(escuela2);
+            // ImprimirCursosForEach(arregloCursos);
 
-            arregloCursos[2] = new Curso
-            {
-                Nombre = "301"
-            };
+            //escuela2 = null;
+            //escuela2.Cursos = null;
+            ImprimirCursosEscuela(escuela2);
 
-            System.Console.WriteLine(escuela);
-            System.Console.WriteLine("========================");
-            System.Console.WriteLine(escuela2);
-            System.Console.WriteLine("========================");
-            ImprimirCursosForEach(arregloCursos);
         }
 
         private static void ImprimirCursosWhile(Curso[] arregloCursos)
@@ -76,6 +80,20 @@ namespace corEscuela
             {
                 System.Console.WriteLine(curso.ToString());
             }
+        }
+
+        private static void ImprimirCursosEscuela(Escuela escuela)
+        {
+            WriteLine("====================");
+            WriteLine("Cursos de la escuela");
+            WriteLine("====================");
+
+            //if (escuela != null && escuela.Cursos != null)
+            if (escuela?.Cursos != null)
+            {
+                ImprimirCursosForEach(escuela.Cursos);
+            }
+
         }
     }
 }
