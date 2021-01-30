@@ -39,16 +39,42 @@ namespace corEscuela
             System.Console.WriteLine("========================");
             System.Console.WriteLine(escuela2);
             System.Console.WriteLine("========================");
-            ImprimirCursos(arregloCursos);
+            ImprimirCursosForEach(arregloCursos);
         }
 
-        private static void ImprimirCursos(Curso[] arregloCursos)
+        private static void ImprimirCursosWhile(Curso[] arregloCursos)
         {
             int contador = 0;
             while (contador < arregloCursos.Length)
             {
-                System.Console.WriteLine($"Nombre: {arregloCursos[contador].Nombre}, ID: {arregloCursos[contador].UniqueId}");
+                System.Console.WriteLine(arregloCursos[contador].ToString());
                 contador++;
+            }
+        }
+
+        private static void ImprimirCursosDoWhile(Curso[] arregloCursos)
+        {
+            int contador = 0;
+            do
+            {
+                System.Console.WriteLine(arregloCursos[contador].ToString());
+                contador++;
+            } while (contador < arregloCursos.Length);
+        }
+
+        private static void ImprimirCursosFor(Curso[] arregloCursos)
+        {
+            for (int i = 0; i < arregloCursos.Length; i++)
+            {
+                System.Console.WriteLine(arregloCursos[i].ToString());
+            }
+        }
+
+        private static void ImprimirCursosForEach(Curso[] arregloCursos)
+        {
+            foreach (var curso in arregloCursos)
+            {
+                System.Console.WriteLine(curso.ToString());
             }
         }
     }
