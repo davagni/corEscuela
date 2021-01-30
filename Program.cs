@@ -11,11 +11,9 @@ namespace corEscuela
             var escuela = new Escuela("Platzi Academy", 2021);
             escuela.Pais = "Colombia";
             escuela.Ciudad = "Bogotá";
+            escuela.TipoEscuela = TiposEscuela.Primaria;
 
-            Console.WriteLine(escuela.Nombre);
-            Console.WriteLine(escuela.AñoDeCreación);
-            Console.WriteLine(escuela.Pais);
-            Console.WriteLine(escuela.Ciudad);
+            Console.WriteLine(escuela);
         }
     }
 }
