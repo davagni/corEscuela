@@ -30,7 +30,7 @@ namespace corEscuela.Entidades
         //Override de ToString
         public override string ToString()
         {
-            return $"Nombre: {Nombre} \nTipo: {TipoEscuela} \nPais: {Pais} \nCiudad: {Ciudad}";
+            return $"Nombre: \"{Nombre}\" \nTipo: {TipoEscuela} \nPais: {Pais} \nCiudad: {Ciudad}";
         }
 
     }
