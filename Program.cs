@@ -15,6 +15,10 @@ namespace corEscuela
 
             var escuela2 = new Escuela("Platzi Academy", 2021, TiposEscuela.Secundaria, ciudad: "Santa Fe", pais: "Argentina");
 
+            /*
+            * Arreglos
+            */
+
             // var arregloCursos = new Curso[3]{
             //     new Curso() { Nombre = "101" },
             //     new Curso() { Nombre = "201"},
@@ -37,12 +41,47 @@ namespace corEscuela
 
             //System.Console.WriteLine(escuela);
             //System.Console.WriteLine("========================");
-            WriteLine(escuela2);
+            //WriteLine(escuela2);
             // ImprimirCursosForEach(arregloCursos);
 
             //escuela2 = null;
             //escuela2.Cursos = null;
-            ImprimirCursosEscuela(escuela2);
+            //ImprimirCursosEscuela(escuela2);
+
+            /*
+            * Condiciones
+            */
+            System.Console.WriteLine("Condiciones=============");
+            bool rta = 10 == 10;
+            int cantidad = 10;
+            if (rta == false)
+            {
+                WriteLine("Se cumple la condición");
+            }
+            else if (cantidad > 5)
+            {
+                WriteLine("Cantidad es > 5");
+            }
+            else
+            {
+                WriteLine("No se cumple la condición");
+            }
+
+            if (cantidad > 5 && rta == false)
+            {
+                WriteLine("Se cumple condicion #3");
+            }
+
+            if (cantidad > 5 && rta)
+            {
+                WriteLine("Se cumple condicion #4");
+            }
+
+            cantidad = 10;
+            if ((cantidad > 5 || !rta) && (cantidad % 5 == 0))
+            {
+                WriteLine("Se cumple condicion #5");
+            }
 
         }
 
