@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.Win32.SafeHandles;
 
 namespace corEscuela.Entidades
@@ -16,7 +17,7 @@ namespace corEscuela.Entidades
         public string Ciudad { get; set; }
         public TiposEscuela TipoEscuela { get; set; }
 
-        public Curso[] Cursos { get; set; }
+        public List<Curso> Cursos { get; set; }
 
         //Constructor
         public Escuela(string nombre, int año) => (Nombre, AñoDeCreación) = (nombre, año);

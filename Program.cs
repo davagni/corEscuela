@@ -1,4 +1,5 @@
-﻿using corEscuela.Entidades;
+﻿using System.Collections.Generic;
+using corEscuela.Entidades;
 using static System.Console;
 
 namespace corEscuela
@@ -25,19 +26,19 @@ namespace corEscuela
             //     new Curso() { Nombre = "301" }
             // };
 
-            Curso[] arregloCursos =
-            {
-                new Curso() { Nombre = "101" },
-                new Curso() { Nombre = "201" },
-                new Curso() { Nombre = "301" }
-            };
-            escuela.Cursos = arregloCursos;
+            // Curso[] arregloCursos =
+            // {
+            //     new Curso() { Nombre = "101" },
+            //     new Curso() { Nombre = "201" },
+            //     new Curso() { Nombre = "301" }
+            // };
+            // escuela.Cursos = arregloCursos;
 
-            escuela2.Cursos = new Curso[]{
-                new Curso() { Nombre = "102" },
-                new Curso() { Nombre = "202" },
-                new Curso() { Nombre = "302" }
-            };
+            // escuela2.Cursos = new Curso[]{
+            //     new Curso() { Nombre = "102" },
+            //     new Curso() { Nombre = "202" },
+            //     new Curso() { Nombre = "302" }
+            // };
 
             //System.Console.WriteLine(escuela);
             //System.Console.WriteLine("========================");
@@ -51,37 +52,64 @@ namespace corEscuela
             /*
             * Condiciones
             */
-            System.Console.WriteLine("Condiciones=============");
-            bool rta = 10 == 10;
-            int cantidad = 10;
-            if (rta == false)
-            {
-                WriteLine("Se cumple la condición");
-            }
-            else if (cantidad > 5)
-            {
-                WriteLine("Cantidad es > 5");
-            }
-            else
-            {
-                WriteLine("No se cumple la condición");
-            }
+            // System.Console.WriteLine("Condiciones=============");
+            // bool rta = 10 == 10;
+            // int cantidad = 10;
+            // if (rta == false)
+            // {
+            //     WriteLine("Se cumple la condición");
+            // }
+            // else if (cantidad > 5)
+            // {
+            //     WriteLine("Cantidad es > 5");
+            // }
+            // else
+            // {
+            //     WriteLine("No se cumple la condición");
+            // }
 
-            if (cantidad > 5 && rta == false)
-            {
-                WriteLine("Se cumple condicion #3");
-            }
+            // if (cantidad > 5 && rta == false)
+            // {
+            //     WriteLine("Se cumple condicion #3");
+            // }
 
-            if (cantidad > 5 && rta)
-            {
-                WriteLine("Se cumple condicion #4");
-            }
+            // if (cantidad > 5 && rta)
+            // {
+            //     WriteLine("Se cumple condicion #4");
+            // }
 
-            cantidad = 10;
-            if ((cantidad > 5 || !rta) && (cantidad % 5 == 0))
-            {
-                WriteLine("Se cumple condicion #5");
-            }
+            // cantidad = 10;
+            // if ((cantidad > 5 || !rta) && (cantidad % 5 == 0))
+            // {
+            //     WriteLine("Se cumple condicion #5");
+            // }
+
+
+            /*
+            * Colecciones
+            */
+
+            var listaCursos = new List<Curso>(){
+                new Curso() { Nombre = "102", Jornada = TiposJornada.Mañana },
+                new Curso() { Nombre = "202", Jornada = TiposJornada.Mañana },
+                new Curso() { Nombre = "302", Jornada = TiposJornada.Mañana }
+            };
+
+            var otraListaCursos = new List<Curso>(){
+                new Curso() { Nombre = "401", Jornada = TiposJornada.Mañana },
+                new Curso() { Nombre = "501", Jornada = TiposJornada.Mañana },
+                new Curso() { Nombre = "502", Jornada = TiposJornada.Tarde }
+            };
+
+            escuela2.Cursos = listaCursos;
+            escuela2.Cursos.Add(new Curso { Nombre = "103", Jornada = TiposJornada.Tarde });
+            escuela2.Cursos.Add(new Curso { Nombre = "203", Jornada = TiposJornada.Tarde });
+
+            //otraListaCursos.Clear();
+            escuela2.Cursos.AddRange(otraListaCursos);
+
+            ImprimirCursosEscuela(escuela2);
+
 
         }
 
@@ -130,7 +158,10 @@ namespace corEscuela
             //if (escuela != null && escuela.Cursos != null)
             if (escuela?.Cursos != null)
             {
-                ImprimirCursosForEach(escuela.Cursos);
+                foreach (var curso in escuela.Cursos)
+                {
+                    System.Console.WriteLine(curso.ToString());
+                }
             }
 
         }
