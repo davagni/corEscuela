@@ -1,4 +1,6 @@
 using System;
+using System.Data;
+using System.Xml;
 
 namespace corEscuela.Entidades
 {
@@ -9,6 +11,8 @@ namespace corEscuela.Entidades
         public string Nombre { get; set; }
 
         public Alumno() => UniqueId = Guid.NewGuid().ToString();
+
+        public Alumno(string nombre) => (Nombre, UniqueId) = (nombre, Guid.NewGuid().ToString());
     }
 
 }
