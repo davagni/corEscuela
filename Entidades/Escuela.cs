@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.Win32.SafeHandles;
 
@@ -5,6 +6,7 @@ namespace corEscuela.Entidades
 {
     public class Escuela
     {
+        public string UniqueId { get; private set; } = Guid.NewGuid().ToString();
         string nombre;
         public string Nombre
         {
