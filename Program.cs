@@ -119,8 +119,22 @@ namespace corEscuela
             // WriteLine("Removiendo Curso...");
             // ImprimirCursosEscuela(escuela2);
 
-            Predicate<Curso> miAlgoritmo = Predicado;
-            escuela2.Cursos.RemoveAll(miAlgoritmo);
+            //Predicate<Curso> miAlgoritmo = Predicado;
+            //escuela2.Cursos.RemoveAll(miAlgoritmo);
+
+            //Inferencia de predicado
+            //escuela2.Cursos.RemoveAll(Predicado);
+
+            //Delegados
+            escuela2.Cursos.RemoveAll(delegate (Curso c)
+            {
+                return c.Nombre == "502";
+            });
+
+            escuela2.Cursos.RemoveAll(c => c.Nombre == "501"
+                                        && c.Jornada == TiposJornada.Mañana);
+
+
             ImprimirCursosEscuela(escuela2);
 
 
@@ -162,6 +176,9 @@ namespace corEscuela
             }
         }
 
+        ///
+        /// Comentarios relacionados a la funcion
+        ///
         private static void ImprimirCursosEscuela(Escuela escuela)
         {
             WriteLine("====================");
