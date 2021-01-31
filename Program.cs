@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using corEscuela.Entidades;
 using static System.Console;
 
@@ -106,8 +107,20 @@ namespace corEscuela
             escuela2.Cursos.Add(new Curso { Nombre = "203", Jornada = TiposJornada.Tarde });
 
             //otraListaCursos.Clear();
+            Curso cursoTmp = new Curso { Nombre = "101-Vacacional", Jornada = TiposJornada.Noche };
             escuela2.Cursos.AddRange(otraListaCursos);
+            escuela2.Cursos.Add(cursoTmp);
 
+            ImprimirCursosEscuela(escuela2);
+
+            //Remover uno en particular por referencia
+            // WriteLine("Curso.Hash: " + cursoTmp.GetHashCode());
+            // escuela2.Cursos.Remove(cursoTmp);
+            // WriteLine("Removiendo Curso...");
+            // ImprimirCursosEscuela(escuela2);
+
+            Predicate<Curso> miAlgoritmo = Predicado;
+            escuela2.Cursos.RemoveAll(miAlgoritmo);
             ImprimirCursosEscuela(escuela2);
 
 
@@ -164,6 +177,11 @@ namespace corEscuela
                 }
             }
 
+        }
+
+        private static bool Predicado(Curso curobj)
+        {
+            return curobj.Nombre == "102";
         }
     }
 }
