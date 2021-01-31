@@ -3,7 +3,7 @@ using Microsoft.Win32.SafeHandles;
 
 namespace corEscuela.Entidades
 {
-    class Escuela
+    public class Escuela
     {
         string nombre;
         public string Nombre
