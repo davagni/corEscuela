@@ -41,11 +41,10 @@ namespace corEscuela.App
                 }
             }
 
-
-
             return listaObj;
         }
 
+        #region --Metodos de Carga--
         private void CargarEvaluaciones()
         {
             //Evaluaciones
@@ -122,7 +121,7 @@ namespace corEscuela.App
                 new Curso() { Nombre = "303", Jornada = TiposJornada.Noche },
                 new Curso() { Nombre = "401", Jornada = TiposJornada.Mañana },
                 new Curso() { Nombre = "501", Jornada = TiposJornada.Mañana },
-                new Curso() { Nombre = "502", Jornada = TiposJornada.Tarde}
+                new Curso() { Nombre = "502", Jornada = TiposJornada.Tarde }
             };
 
             Random rnd = new Random();
@@ -132,5 +131,8 @@ namespace corEscuela.App
                 curso.Alumnos = GenerarAlumnosAlAzar(alumnosPorCurso);
             }
         }
+
+        #endregion
+
     }
 }
