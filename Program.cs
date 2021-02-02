@@ -21,17 +21,12 @@ namespace corEscuela
 
             ImprimirCursosEscuela(engine.Escuela);
 
-            var listaObjetos = engine.GetObjetoEscuelas();
-
-            var listaILugar = from obj in listaObjetos
-                              where obj is ILugar
-                              select (ILugar)obj;
-
-            var listaAlumnos = from obj in listaObjetos
-                               where obj is Alumno
-                               select (Alumno)obj;
-
-            // engine.Escuela.LimpiarLugar();
+            var listaObjetos = engine.GetObjetoEscuelas(
+                out int conteoEvaluaciones,
+                out int conteoCursos,
+                out int conteoAsignaturas,
+                out int conteoAlumnos
+            );
 
         }
 
