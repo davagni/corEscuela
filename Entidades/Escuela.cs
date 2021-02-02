@@ -37,13 +37,12 @@ namespace corEscuela.Entidades
 
         public void LimpiarLugar()
         {
-            Printer.DrawLine();
-            System.Console.WriteLine("Limpiando Escuela...");
+            Printer.WriteTitle("Limpiando Escuela");
             foreach (var curso in Cursos)
             {
                 curso.LimpiarLugar();
             }
-            System.Console.WriteLine($"Escuela {Nombre} limpia");
+            Printer.WriteTitle($"Escuela {Nombre} limpia");
         }
     }
 }

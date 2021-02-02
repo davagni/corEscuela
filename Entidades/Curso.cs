@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using corEscuela.Util;
 
 namespace corEscuela.Entidades
 {
@@ -21,7 +19,6 @@ namespace corEscuela.Entidades
 
         public void LimpiarLugar()
         {
-            Printer.DrawLine();
             System.Console.WriteLine($"Curso {Nombre} limpio");
         }
     }
