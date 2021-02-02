@@ -3,7 +3,7 @@ using System;
 namespace corEscuela.Entidades
 {
     ///Abstract permite heredar pero no crear instancias
-    public class ObjetoEscuelaBase
+    public abstract class ObjetoEscuelaBase
     {
         public string UniqueId { get; private set; }
 
