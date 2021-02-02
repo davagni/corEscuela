@@ -16,9 +16,11 @@ namespace corEscuela
             engine.Inicializar();
 
             Printer.WriteTitle("Bienvenidos a la Escuela");
-            Printer.Beep(10000, veces: 2);
+            // Printer.Beep(10000, veces: 2);
 
             ImprimirCursosEscuela(engine.Escuela);
+
+            var listaObjetos = engine.GetObjetoEscuelas();
 
         }
 

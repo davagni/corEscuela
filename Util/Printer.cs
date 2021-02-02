@@ -5,7 +5,7 @@ namespace corEscuela.Util
 {
     public static class Printer
     {
-        public static void DibujarLinea(int longitud = 10)
+        public static void DrawLine(int longitud = 10)
         {
             var linea = "".PadLeft(longitud, '=');
             WriteLine(linea);
@@ -15,9 +15,9 @@ namespace corEscuela.Util
         {
             var longitud = titulo.Length + 4;
 
-            DibujarLinea(longitud);
+            DrawLine(longitud);
             WriteLine($"| {titulo} |");
-            DibujarLinea(longitud);
+            DrawLine(longitud);
         }
 
         public static void Beep(int hz = 2000, int tiempo = 500, int veces = 1)
