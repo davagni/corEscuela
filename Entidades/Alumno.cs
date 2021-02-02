@@ -5,17 +5,10 @@ using System.Xml;
 
 namespace corEscuela.Entidades
 {
-    public class Alumno
+    public class Alumno : ObjetoEscuelaBase
     {
-        public string UniqueId { get; private set; }
+        public List<Evaluacion> Evaluaciones { get; set; } = new List<Evaluacion>();
 
-        public string Nombre { get; set; }
-
-        public List<Evaluacion> listaEvaluaciones { get; set; }
-
-        public Alumno() => UniqueId = Guid.NewGuid().ToString();
-
-        public Alumno(string nombre) => (Nombre, UniqueId) = (nombre, Guid.NewGuid().ToString());
     }
 
 }

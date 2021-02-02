@@ -4,16 +4,8 @@ using Microsoft.Win32.SafeHandles;
 
 namespace corEscuela.Entidades
 {
-    public class Escuela
+    public class Escuela : ObjetoEscuelaBase
     {
-        public string UniqueId { get; private set; } = Guid.NewGuid().ToString();
-        string nombre;
-        public string Nombre
-        {
-            get { return "Copia: " + nombre; }
-            set { nombre = value.ToUpperInvariant(); }
-        }
-
         public int AñoDeCreación { get; set; }
         public string Pais { get; set; }
         public string Ciudad { get; set; }

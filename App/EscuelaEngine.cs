@@ -5,7 +5,8 @@ using corEscuela.Entidades;
 
 namespace corEscuela.App
 {
-    public class EscuelaEngine
+    ///Sealed permite crear instanciar pero no heredar
+    public sealed class EscuelaEngine
     {
         public Escuela Escuela { get; set; }
 
@@ -45,7 +46,7 @@ namespace corEscuela.App
                                 Alumno = alumno
                             };
 
-                            alumno.listaEvaluaciones.Add(ev);
+                            alumno.Evaluaciones.Add(ev);
                         }
                     }
                 }
@@ -82,7 +83,7 @@ namespace corEscuela.App
             var listaAlumnos = from n1 in nombre1
                                from n2 in nombre2
                                from a1 in apellido1
-                               select new Alumno($"{n1} {n2} {a1}");
+                               select new Alumno { Nombre = $"{n1} {n2} {a1}" };
 
             return listaAlumnos.OrderBy(a => a.UniqueId)
                                .Take(cantidadAlumnos)
