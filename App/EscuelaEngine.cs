@@ -45,6 +45,52 @@ namespace corEscuela.App
         }
 
         public List<ObjetoEscuelaBase> GetObjetoEscuelas(
+            bool traeEvaluaciones = true,
+            bool traeAlumnos = true,
+            bool traeAsignaturas = true,
+            bool traeCursos = true)
+        {
+            return GetObjetoEscuelas(out int dummy, out dummy, out dummy, out dummy,
+                traeEvaluaciones, traeAlumnos, traeAsignaturas, traeCursos);
+        }
+
+        public List<ObjetoEscuelaBase> GetObjetoEscuelas(
+            out int conteoEvaluaciones,
+            bool traeEvaluaciones = true,
+            bool traeAlumnos = true,
+            bool traeAsignaturas = true,
+            bool traeCursos = true)
+        {
+            return GetObjetoEscuelas(out conteoEvaluaciones, out int dummy, out dummy, out dummy,
+                traeEvaluaciones, traeAlumnos, traeAsignaturas, traeCursos);
+        }
+
+        public List<ObjetoEscuelaBase> GetObjetoEscuelas(
+            out int conteoEvaluaciones,
+            out int conteoCursos,
+            bool traeEvaluaciones = true,
+            bool traeAlumnos = true,
+            bool traeAsignaturas = true,
+            bool traeCursos = true)
+        {
+            return GetObjetoEscuelas(out conteoEvaluaciones, out conteoCursos, out int dummy, out dummy,
+                traeEvaluaciones, traeAlumnos, traeAsignaturas, traeCursos);
+        }
+
+        public List<ObjetoEscuelaBase> GetObjetoEscuelas(
+            out int conteoEvaluaciones,
+            out int conteoCursos,
+            out int conteoAsignaturas,
+            bool traeEvaluaciones = true,
+            bool traeAlumnos = true,
+            bool traeAsignaturas = true,
+            bool traeCursos = true)
+        {
+            return GetObjetoEscuelas(out conteoEvaluaciones, out conteoCursos, out conteoAsignaturas, out int dummy,
+                traeEvaluaciones, traeAlumnos, traeAsignaturas, traeCursos);
+        }
+
+        public List<ObjetoEscuelaBase> GetObjetoEscuelas(
             out int conteoEvaluaciones,
             out int conteoCursos,
             out int conteoAsignaturas,
