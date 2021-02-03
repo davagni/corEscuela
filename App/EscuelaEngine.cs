@@ -23,7 +23,7 @@ namespace corEscuela.App
             CargarEvaluaciones();
         }
 
-        public List<ObjetoEscuelaBase> GetObjetoEscuelas()
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetoEscuelas()
         {
             var listaObj = new List<ObjetoEscuelaBase>();
 
@@ -41,10 +41,10 @@ namespace corEscuela.App
                 }
             }
 
-            return listaObj;
+            return listaObj.AsReadOnly();
         }
 
-        public List<ObjetoEscuelaBase> GetObjetoEscuelas(
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetoEscuelas(
             bool traeEvaluaciones = true,
             bool traeAlumnos = true,
             bool traeAsignaturas = true,
@@ -54,7 +54,7 @@ namespace corEscuela.App
                 traeEvaluaciones, traeAlumnos, traeAsignaturas, traeCursos);
         }
 
-        public List<ObjetoEscuelaBase> GetObjetoEscuelas(
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetoEscuelas(
             out int conteoEvaluaciones,
             bool traeEvaluaciones = true,
             bool traeAlumnos = true,
@@ -65,7 +65,7 @@ namespace corEscuela.App
                 traeEvaluaciones, traeAlumnos, traeAsignaturas, traeCursos);
         }
 
-        public List<ObjetoEscuelaBase> GetObjetoEscuelas(
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetoEscuelas(
             out int conteoEvaluaciones,
             out int conteoCursos,
             bool traeEvaluaciones = true,
@@ -77,7 +77,7 @@ namespace corEscuela.App
                 traeEvaluaciones, traeAlumnos, traeAsignaturas, traeCursos);
         }
 
-        public List<ObjetoEscuelaBase> GetObjetoEscuelas(
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetoEscuelas(
             out int conteoEvaluaciones,
             out int conteoCursos,
             out int conteoAsignaturas,
@@ -90,7 +90,7 @@ namespace corEscuela.App
                 traeEvaluaciones, traeAlumnos, traeAsignaturas, traeCursos);
         }
 
-        public List<ObjetoEscuelaBase> GetObjetoEscuelas(
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetoEscuelas(
             out int conteoEvaluaciones,
             out int conteoCursos,
             out int conteoAsignaturas,
@@ -134,7 +134,7 @@ namespace corEscuela.App
                 }
             }
 
-            return listaObj;
+            return listaObj.AsReadOnly();
         }
 
         #region --Metodos de Carga--
