@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using corEscuela.Entidades;
+using corEscuela.Util;
 
 namespace corEscuela.App
 {
@@ -21,6 +23,72 @@ namespace corEscuela.App
             CargarCursos();
             CargarAsignaturas();
             CargarEvaluaciones();
+        }
+
+        public void imprimirDiccionario(Dictionary<LlaveDiccionario, IEnumerable<ObjetoEscuelaBase>> dic,
+            bool imprimirEvaluacion = false)
+        {
+            foreach (var obj in dic)
+            {
+                Printer.WriteTitle(obj.Key.ToString());
+
+                foreach (var val in obj.Value)
+                {
+
+                    switch (obj.Key)
+                    {
+                        case LlaveDiccionario.Evaluacion:
+                            if (imprimirEvaluacion)
+                            {
+                                Console.WriteLine(val);
+                            }
+                            break;
+                        case LlaveDiccionario.Escuela:
+                            Console.WriteLine("Escuela: " + val);
+                            break;
+                        case LlaveDiccionario.Alumno:
+                            Console.WriteLine("Alumno: " + val.Nombre);
+                            break;
+                        case LlaveDiccionario.Curso:
+                            var curtmp = val as Curso;
+                            if (curtmp != null)
+                            {
+                                int cantAlumnos = curtmp.Alumnos.Count();
+                                Console.WriteLine("Curso: " + val.Nombre + ". Cantidad Alumnos: " + cantAlumnos);
+                            }
+                            break;
+                        default:
+                            Console.WriteLine(val);
+                            break;
+                    }
+                }
+            }
+        }
+
+        public Dictionary<LlaveDiccionario, IEnumerable<ObjetoEscuelaBase>> GetDiccionarioObjetos()
+        {
+            var diccionario = new Dictionary<LlaveDiccionario, IEnumerable<ObjetoEscuelaBase>>();
+            var listaTmpAsignaturas = new List<Asignatura>();
+            var listaTmpAlumnos = new List<Alumno>();
+            var listaTmpEvaluaciones = new List<Evaluacion>();
+
+            foreach (var curso in Escuela.Cursos)
+            {
+                listaTmpAsignaturas.AddRange(curso.Asignaturas);
+                listaTmpAlumnos.AddRange(curso.Alumnos);
+                foreach (var alumno in curso.Alumnos)
+                {
+                    listaTmpEvaluaciones.AddRange(alumno.Evaluaciones);
+                }
+            }
+
+            diccionario.Add(LlaveDiccionario.Escuela, new[] { Escuela });
+            diccionario.Add(LlaveDiccionario.Curso, Escuela.Cursos.Cast<ObjetoEscuelaBase>());
+            diccionario.Add(LlaveDiccionario.Asignatura, listaTmpAsignaturas.Cast<ObjetoEscuelaBase>());
+            diccionario.Add(LlaveDiccionario.Alumno, listaTmpAlumnos.Cast<ObjetoEscuelaBase>());
+            diccionario.Add(LlaveDiccionario.Evaluacion, listaTmpEvaluaciones.Cast<ObjetoEscuelaBase>());
+
+            return diccionario;
         }
 
         public IReadOnlyList<ObjetoEscuelaBase> GetObjetoEscuelas()
@@ -157,7 +225,7 @@ namespace corEscuela.App
                             {
                                 Asignatura = asignatura,
                                 Nombre = $"{asignatura.Nombre} Ev#{i}",
-                                Nota = (float)(5 * rnd.NextDouble()),
+                                Nota = MathF.Round((float)(5 * rnd.NextDouble()), 2),
                                 Alumno = alumno
                             };
 
