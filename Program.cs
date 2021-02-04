@@ -13,6 +13,10 @@ namespace corEscuela
         static void Main(string[] args)
         {
 
+            AppDomain.CurrentDomain.ProcessExit += AccionDelEvento;
+            AppDomain.CurrentDomain.ProcessExit += (o, s) => Printer.Beep(100, 1000, 1);
+            AppDomain.CurrentDomain.ProcessExit -= AccionDelEvento;
+
             var engine = new EscuelaEngine();
             engine.Inicializar();
 
@@ -34,6 +38,13 @@ namespace corEscuela
 
             engine.imprimirDiccionario(dictmp, true);
 
+        }
+
+        private static void AccionDelEvento(object sender, EventArgs e)
+        {
+            Printer.WriteTitle("Saliendo...");
+            Printer.Beep(3000, 1000, 3);
+            Printer.WriteTitle("Salió");
         }
 
         private static void ImprimirCursosEscuela(Escuela escuela)
