@@ -211,14 +211,14 @@ namespace corEscuela.App
             //Evaluaciones
             //Por cada Curso / Asignatura / Alumno / Agregar 5 evaluaciones
             //Con notas entre 0.0 y 5.0
+
+            var rnd = new Random();
             foreach (var curso in Escuela.Cursos)
             {
                 foreach (var asignatura in curso.Asignaturas)
                 {
                     foreach (var alumno in curso.Alumnos)
                     {
-                        var rnd = new Random(System.Environment.TickCount);
-
                         for (int i = 1; i < 6; i++)
                         {
                             var ev = new Evaluacion
