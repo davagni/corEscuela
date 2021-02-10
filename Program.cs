@@ -33,7 +33,6 @@ namespace corEscuela
             Printer.WriteTitle("Captura de una Evaluacion por Consola");
             var newEval = new Evaluacion();
             string nombre, notaString;
-            float nota;
 
             WriteLine("Ingrese el nombre de la evaluación");
             Printer.PresioneENTER();
@@ -75,10 +74,15 @@ namespace corEscuela
                     Printer.WriteTitle(arge.Message);
                     WriteLine("Saliendo del programa");
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     Printer.WriteTitle("El valor de la nota no es un número válido.");
                     WriteLine("Saliendo del programa");
+                }
+                finally
+                {
+                    Printer.WriteTitle("Finally.");
+                    Printer.Beep(2500, 500, 3);
                 }
             }
         }
